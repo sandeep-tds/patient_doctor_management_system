@@ -1,0 +1,64 @@
+<mvc:View 
+	controllerName="com.todo.demo.ui.controller.Chart2"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:c="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" 
+	xmlns:tnt="sap.tnt"
+	xmlns:m="sap.m"
+	xmlns:mic="sap.suite.ui.microchart"
+	height="100%"
+	class="side-navigation-demo">
+	<m:App id="idAppControl" class="bar">
+		<m:pages>
+			<m:Page title="HOPE TEAM EAST">
+			<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+			
+				<!--NavBar Section-->
+				<u:secondaryContent >
+					<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect" >
+						<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://home" ></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://line-chart"></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" icon="sap-icon://decline"></tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</u:secondaryContent>
+				
+				<!--Content Section-->
+				<u:content>
+					<m:Toolbar>
+						<!--Return button-->
+						<m:HBox justifyContent="Start" alignItems="Start" class="sapUiLargeMargin">
+							<m:Button icon="sap-icon://arrow-left" press="returnStat"/>
+						</m:HBox>
+						<m:ToolbarSpacer/>
+						<!--Logo hte-->
+						<m:Image src="img/hte.png" width="4%"></m:Image>
+					</m:Toolbar>
+					
+					<!--Graphic-->
+					<m:VBox alignItems="Center" justifyContent="Center">
+						<m:FlexBox width="20rem" height="10rem" alignItems="Center" class="sapUiSmallMargin">
+							<m:items>
+								<mic:InteractiveLineChart selectionChanged="selectionChanged" press="press">
+									<mic:points>
+										<mic:InteractiveLineChartPoint value="33.1" label="Mai"/>
+										<mic:InteractiveLineChartPoint value="12" label="Juin"/>
+										<mic:InteractiveLineChartPoint value="51.4" label="Juillet"/>
+										<mic:InteractiveLineChartPoint value="52" label="Aout"/>
+										<mic:InteractiveLineChartPoint value="69.9" label="Sep"/>
+										<mic:InteractiveLineChartPoint value="0.9" label="Oct"/>
+									</mic:points>
+								</mic:InteractiveLineChart>
+							</m:items>
+						</m:FlexBox>
+					</m:VBox>
+				</u:content>
+			</u:SplitContainer>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

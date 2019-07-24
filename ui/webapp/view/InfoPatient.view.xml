@@ -1,0 +1,119 @@
+<mvc:View
+controllerName="com.todo.demo.ui.controller.InfoPatient"	
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:smartForm="sap.ui.comp.smartform" 
+xmlns:smartField="sap.ui.comp.smartfield"
+xmlns:l="sap.ui.layout"
+xmlns:u="sap.ui.unified"
+xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true" 
+xmlns:tnt="sap.tnt"
+xmlns:m="sap.m"
+height="100%">
+	<m:App id="app" class="bar sizeField barBlue">
+		<m:pages>
+			<m:Page id="feedback" title="HOPE TEAM EAST">
+				<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+						
+					<!--NavBar Section-->
+					<u:secondaryContent >
+						<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+							<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://person-placeholder" ></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						</tnt:NavigationList>
+					</u:secondaryContent>
+					
+					<!--Content Section-->
+					<u:content>
+						<m:Toolbar>
+							<!--Menu list-->
+							<m:HBox justifyContent="Start" alignItems="Start" class="sapUiLargeMargin">
+								<m:MenuButton text="Menu" buttonMode="Split" defaultAction="onDefaultAction">
+									<m:menu>
+										<m:Menu itemSelected="onMenuAction">
+											<m:items>
+												<m:MenuItem text="Calendrier" icon="sap-icon://calendar" press="goPageCalendar"/>
+												<m:MenuItem text="Informations Patients" icon="sap-icon://meeting-room" press="goPageInfPat"/>
+												<m:MenuItem text="Statistique" icon="sap-icon://bar-chart" press="goPageStat"/>
+												<m:MenuItem text="Parametres" icon="sap-icon://action-settings" press="goPageParam" />
+												<m:MenuItem text="Se déconnecter" icon="sap-icon://log" press="goPageConnec"/>
+											</m:items>
+										</m:Menu>
+									</m:menu>
+								</m:MenuButton>
+							</m:HBox>
+							<m:ToolbarSpacer/>
+							<!--Logo hte-->
+							<m:Image src="img/hte.png" width="4%"></m:Image>
+						</m:Toolbar>
+						
+						<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+						<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+							
+							<m:ScrollContainer height="590px" width="700px" horizontal="true" vertical="true" focusable="true">
+							
+								<!--User image-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+								<core:Icon src="sap-icon://person-placeholder" size="80px" color="rgb(26, 51, 148, 0.7)" class="sapUiSmallMargin" ></core:Icon>
+								</m:HBox>
+							
+								<smartForm:SmartForm id="smartForm">
+										
+									<!--Profile information-->
+									<smartForm:Group label="Mon profil">
+										<smartForm:GroupElement label="Nom">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Prénom">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Né(e) le">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Age">
+											<smartField:SmartField  value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Email">
+											<smartField:SmartField  value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Téléphone">
+											<smartField:SmartField  value="{Hola}"/>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+									
+									<!--HTE information	-->
+									<smartForm:Group label="Informations Hope Team East">
+										<smartForm:GroupElement label="Défi">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+										
+										<smartForm:GroupElement label="Matériel">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+										
+										<smartForm:GroupElement label="Groupe">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+										
+										<smartForm:GroupElement label="Notes">
+											<smartField:SmartField  value="{Hola}"/>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+										
+								</smartForm:SmartForm>
+							</m:ScrollContainer>
+						</m:HBox>
+						</m:VBox>
+					</u:content>
+				</u:SplitContainer>			
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

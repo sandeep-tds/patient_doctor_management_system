@@ -1,0 +1,95 @@
+<mvc:View controllerName="com.todo.demo.ui.controller.Chart1" 
+			xmlns:html="http://www.w3.org/1999/xhtml" 
+			xmlns:l="sap.ui.layout"
+			xmlns:u="sap.ui.unified" 
+			xmlns:core="sap.ui.core" 
+			xmlns:c="sap.suite.ui.microchart" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			displayBlock="true"
+			xmlns:tnt="sap.tnt" 
+			xmlns:m="sap.m" 
+			xmlns:mic="sap.suite.ui.microchart" 
+			height="100%" 
+			class="side-navigation-demo">
+	<m:App id="idAppControl" class="bar">
+		<m:pages>
+			<m:Page title="HOPE TEAM EAST">
+				<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+					<!--NavBar Section-->
+					<u:secondaryContent >
+						<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+							<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://home"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://line-chart"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" icon="sap-icon://decline"></tnt:NavigationListItem>
+						</tnt:NavigationList>
+					</u:secondaryContent>
+					<!--Content Section-->
+					<u:content>
+						<m:Toolbar>
+							<!--Return button-->
+							<m:HBox justifyContent="Start" alignItems="Start" class="sapUiLargeMargin">
+								<m:Button icon="sap-icon://arrow-left" press="returnStat"/>
+							</m:HBox>
+							<m:ToolbarSpacer/>
+							<!--Logo hte-->
+							<m:Image src="img/hte.png" width="4%"></m:Image>
+						</m:Toolbar>
+						<m:VBox alignItems="Center" justifyContent="Center">
+							<m:FlexBox alignItems="Center" width="12rem" height="6rem" justifyContent="Center">
+								
+								<mic:ColumnMicroChart size="M" press="press" class="sapUiSmallMargin">
+									<mic:leftTopLabel>
+										<mic:ColumnMicroChartLabel label="0M" color="Good"/>
+									</mic:leftTopLabel>
+									<mic:rightTopLabel>
+										<mic:ColumnMicroChartLabel label="80M" color="Critical"/>
+									</mic:rightTopLabel>
+									<mic:leftBottomLabel>
+										<mic:ColumnMicroChartLabel label="Juin 1"/>
+									</mic:leftBottomLabel>
+									<mic:rightBottomLabel>
+										<mic:ColumnMicroChartLabel label="Juin 30"/>
+									</mic:rightBottomLabel>
+									<mic:columns>
+										<mic:ColumnMicroChartData value="60" color="Error"/>
+										<mic:ColumnMicroChartData value="80" color="Error"/>
+										<mic:ColumnMicroChartData value="100" color="Error"/>
+										<mic:ColumnMicroChartData value="60" color="Neutral"/>
+										<mic:ColumnMicroChartData value="55" color="Neutral"/>
+										<mic:ColumnMicroChartData value="15" color="Neutral"/>
+									</mic:columns>
+								</mic:ColumnMicroChart>
+								
+								<!--<m:items>-->
+								<!--	<mic:ColumnMicroChart press="press" isResponsive="true">-->
+								<!--		<mic:leftTopLabel>-->
+								<!--		<mic:ColumnMicroChartLabel label="0M" />-->
+								<!--		</mic:leftTopLabel>-->
+								<!--		<mic:rightTopLabel>-->
+								<!--			<mic:ColumnMicroChartLabel label="80M" />-->
+								<!--		</mic:rightTopLabel>-->
+								<!--		<mic:leftBottomLabel>-->
+								<!--			<mic:ColumnMicroChartLabel label="June 1" />-->
+								<!--		</mic:leftBottomLabel>-->
+								<!--		<mic:rightBottomLabel>-->
+								<!--			<mic:ColumnMicroChartLabel label="June 30" />-->
+								<!--		</mic:rightBottomLabel>-->
+								<!--		<mic:columns>-->
+								<!--			<mic:ColumnMicroChartData	value="40" color="Good"/>-->
+								<!--			<mic:ColumnMicroChartData	value="50" color="Good"/>-->
+								<!--			<mic:ColumnMicroChartData	value="45" color="Good"/>-->
+								<!--			<mic:ColumnMicroChartData	value="60" color="Good"/>-->
+								<!--			<mic:ColumnMicroChartData	value="55" color="Good"/>-->
+								<!--			<mic:ColumnMicroChartData	value="60" color="Good"/>-->
+								<!--		</mic:columns>-->
+								<!--	</mic:ColumnMicroChart>-->
+								<!--</m:items>-->
+							</m:FlexBox>
+						</m:VBox>
+					</u:content>
+				</u:SplitContainer>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

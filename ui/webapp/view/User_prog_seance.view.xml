@@ -1,0 +1,71 @@
+<mvc:View 
+	controllerName="com.todo.demo.ui.controller.User_prog_seance"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" 
+	xmlns:tnt="sap.tnt"
+	xmlns:m="sap.m"
+	height="100%"
+	class="side-navigation-demo">
+	<m:App id="idAppControl" class="bar">
+		<m:pages>
+			<m:Page title="HOPE TEAM EAST">
+			<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+			
+			<!--NavBar Section-->
+			<u:secondaryContent >
+				<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect" >
+					<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://home" ></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://line-chart"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="" icon="sap-icon://decline"></tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</u:secondaryContent>
+			
+			<!--Content Section-->
+			<u:content>
+				<m:Toolbar>
+					<m:ToolbarSpacer/>
+					<!--Logo hte-->
+					<m:Image src="img/hte.png" width="4%"></m:Image>
+				</m:Toolbar>
+				
+				<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+
+					<l:VerticalLayout>
+						
+						<!--Seance 1-->
+						<m:HBox justifyContent="Center" alignItems="Start">
+							<m:Button text="Séance 1" class="sapUiTinyMargin" press="goPageDetailSeance" />
+							<m:DatePicker displayFormat="short" change="handleChange" placeholder="Choisissez la date" class="sapUiSmallMargin"/>
+						</m:HBox>
+						
+						<!--Seance 2-->
+						<m:HBox justifyContent="Center" alignItems="Start">
+							<m:Button text="Séance 2" class="sapUiTinyMargin"/>
+							<m:DatePicker displayFormat="short" change="handleChange" placeholder="Choisissez la date" class="sapUiSmallMargin"/>
+						</m:HBox>
+						
+						<!--Seance 3-->
+						<m:HBox justifyContent="Center" alignItems="Start">
+							<m:Button text="Séance 3" class="sapUiTinyMargin"/>
+							<m:DatePicker displayFormat="short" change="handleChange" placeholder="Choisissez la date" class="sapUiSmallMargin"/>
+						</m:HBox>
+						
+						<m:HBox justifyContent="Center" alignItems="End">
+							<m:Button text="Valider" press="goToCalendar"/>
+						</m:HBox>
+					</l:VerticalLayout>
+
+				</m:VBox>
+				
+			</u:content>
+			
+			</u:SplitContainer>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

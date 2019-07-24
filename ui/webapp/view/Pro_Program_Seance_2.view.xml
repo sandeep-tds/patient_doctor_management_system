@@ -1,0 +1,80 @@
+<mvc:View
+controllerName="com.todo.demo.ui.controller.Pro_Program_Seance_2"	
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:smartForm="sap.ui.comp.smartform" 
+xmlns:smartField="sap.ui.comp.smartfield"
+xmlns:l="sap.ui.layout"
+xmlns:u="sap.ui.unified"
+xmlns:me="sap.me"
+xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true" 
+xmlns:tnt="sap.tnt"
+xmlns:m="sap.m"
+height="100%">
+	<m:App id="app" class="bar sizeField barBlue">
+		<m:pages>
+			<m:Page id="feedback" title="HOPE TEAM EAST">
+				<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+						
+					<!--NavBar Section-->
+					<u:secondaryContent >
+						<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+							<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://person-placeholder" ></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						</tnt:NavigationList>
+					</u:secondaryContent>
+					
+					<!--Content Section-->
+					<u:content>
+						<m:Toolbar>
+							<!--Menu list-->
+							<m:HBox justifyContent="Start" alignItems="Start" class="sapUiLargeMargin">
+								<m:MenuButton text="Menu" buttonMode="Split" defaultAction="onDefaultAction">
+									<m:menu>
+										<m:Menu itemSelected="onMenuAction">
+											<m:items>
+												<m:MenuItem text="Calendrier" icon="sap-icon://calendar" press="goPageCalendar"/>
+												<m:MenuItem text="Informations Patients" icon="sap-icon://meeting-room" press="goPageInfPat"/>
+												<m:MenuItem text="Statistique" icon="sap-icon://bar-chart" press="goPageStat"/>
+												<m:MenuItem text="Parametres" icon="sap-icon://action-settings" press="goPageParam" />
+												<m:MenuItem text="Se déconnecter" icon="sap-icon://log" press="goPageConnec"/>
+											</m:items>
+										</m:Menu>
+									</m:menu>
+								</m:MenuButton>
+							</m:HBox>
+							<m:ToolbarSpacer/>
+							<!--Logo hte-->
+							<m:Image src="img/hte.png" width="4%"></m:Image>
+						</m:Toolbar>
+						
+						<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+							<l:VerticalLayout>
+							
+							<!--Some text-->
+							<m:HBox justifyContent="Center" alignItems="Center">
+								<m:Text class="sapUiTinyMargin" text="Semaine n+1" />
+							</m:HBox>
+							
+							<!--Seances buttons-->
+							<m:VBox justifyContent="Center" alignItems="Center" class="sapUiSmallMargin">
+								<m:Button text="Séance 1" press="onPress" class="sapUiSmallMargin seanceSize"/>
+								<m:Button text="Séance 2" press="onPress" class="sapUiSmallMargin seanceSize"/>
+								<m:Button text="Séance 3" press="onPress" class="sapUiSmallMargin seanceSize"/>
+							</m:VBox>
+							
+							</l:VerticalLayout>
+							
+							<!--Submit button-->
+							<m:VBox justifyContent="Center" alignItems="Center">
+								<m:Button text="Suivant" press="goProProgramSeance1" class="sapUiLargeMargin colorOrange"/>
+							</m:VBox>
+						</m:VBox>		
+					</u:content>
+				</u:SplitContainer>			
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

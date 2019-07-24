@@ -1,0 +1,115 @@
+<mvc:View height="100%" controllerName="com.todo.demo.ui.controller.Inscription" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<App id="app" class="connexion">
+		<pages>
+			<Page id="inscription" title=" ">
+				<content>
+					<FlexBox justifyContent="Center" alignItems="Start">
+						<items>
+							<Image src="img/backgroundHTE.png" width="100%" height="30%"></Image>
+						</items>
+					</FlexBox>
+					<VBox class="sapUiSmallMargin colorBackground" justifyContent="Center" alignItems="Center">
+						<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1" class="sapUiLargeMargin colorBackgroundForm">
+							<f:toolbar>
+								<Toolbar id="TB1">
+									<!-- TODO Center-->
+									<Title id="Title1" text="{i18n>Inscription}" textAlign="Center" level="H4" titleStyle="H4"/>
+									<ToolbarSpacer/>
+								</Toolbar>
+							</f:toolbar>
+							<f:layout>
+								<f:ResponsiveGridLayout/>
+							</f:layout>
+							<f:formContainers >
+								<f:FormContainer ariaLabelledBy="Title2">
+									<f:toolbar>
+										<Toolbar>
+											<Title id="Title3" level="H6" titleStyle="H6" text="{i18n>WelcomeI}"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</f:toolbar>
+									<f:formElements>
+										<f:FormElement>
+											<f:fields>
+												<Input id="idFirstName" placeholder="{i18n>Name}" value="{ path : '/firstname' , parameters : { $$updateGroupId : 'userId' } }"/>
+											</f:fields>
+										</f:FormElement>
+										<!--Put correct type-->
+										<f:FormElement>
+											<f:fields>
+												<Input placeholder="{i18n>mail}" value="{Email}" type="Email" id="email"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:fields>
+									
+												<Input placeholder="{i18n>Password}"  type="Password" id="password"/>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:fields>
+												<Input placeholder="{i18n>AdressStreet}" id="street"  />
+												<Input placeholder="{i18n>AdressNum}" id="addressnum" >
+													<layoutData>
+														<l:GridData span="L2 M2 S4"/>
+													</layoutData>
+												</Input>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:fields>
+												<Input placeholder="{i18n>AdressTown}" id="town" />
+												<Input placeholder="{i18n>AdressTownNum}" id="zipcode" >
+												<!--<Input placeholder="{i18n>Country}" id="zipcode" >-->
+													<layoutData>
+														<l:GridData span="L2 M2 S4"/>
+													</layoutData>
+												</Input>
+											</f:fields>
+										</f:FormElement>
+										<f:FormElement>
+											<f:fields>
+												<Input placeholder="{i18n>Country}" id="country" >
+												</Input>
+										    <VBox>
+												<Select
+													forceSelection="false"
+													selectedKey="{patient>/SelectedPracticien}"
+													items="{
+														path: 'patient>/PracticienList',
+														sorter: { path: 'patient>Name' }
+													}">
+													<core:Item key="{patient>PracticienId}" text="{patient>Name}" />
+												</Select>
+											</VBox>
+												<!--<Select width="100%" id="country" >-->
+												<!--	<items>-->
+												<!--		<core:Item text="{i18n>Country}" key="test"/>-->
+												<!--		<core:Item text="France" key="France"/>-->
+												<!--		<core:Item text="USA" key="USA"/>-->
+												<!--		<core:Item text="England" key="England"/>-->
+												<!--	</items>-->
+												<!--</Select>-->
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+					</VBox>
+					<Text text="{/firstname}"></Text>
+					<HBox justifyContent="Center" alignItems="Center">
+						<Toolbar>
+							<Button text="{i18n>Go}" press="inscriptionOK">
+								<layoutData>
+									<FlexItemData growFactor="1"/>
+								</layoutData>
+							</Button>
+						</Toolbar>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

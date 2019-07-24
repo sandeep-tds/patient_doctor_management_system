@@ -1,0 +1,132 @@
+.sapMBarPH{
+	background-color : rgba(255,255,255) !important;
+}
+
+.sapMShellBrandingBar{
+	background-color : rgba(255,255,255) !important;
+}
+
+.sapMTBNewFlex{
+	border-bottom: 0px !important;
+}
+
+.sapMFlexBoxFit, .sapMFlexBoxScroll {
+    height: 70% !important;
+}
+
+.connexion .sapMBarPH{
+	background-color : rgba(153, 221, 215, 0.7);
+}
+
+.connexion .sapMShellBrandingBar{
+	background-color : rgba(153, 221, 215, 0.95);
+}
+
+.sapMFlexBox{
+	margin-top: 1.5em;
+}
+
+.bar .sapTntNavLIItem{
+	height: 80px !important;
+}
+
+.bar .sapTntNavLIItem{
+	background-color: #ff9d3f !important;
+}
+
+.bar .sapTntNavLIItem>.sapUiIcon {
+    color: #ffffff !important;
+    font-size: 2em !important;
+    left: 20%;
+}
+
+.bar .sapTntNavLIGroup {
+    border-bottom: 0px !important;
+}
+
+
+.bar .sapUiUfdSpltContPane{
+	width:80px !important;
+}
+
+.bar .sapUiUfdSpltContCanvas{
+	left: 50px !important;
+}
+
+.bar .sapMBarPH{
+	background-color : rgba(255,255,255);
+}
+
+.bar .sapUiUfdSpltContPane{
+	background-color: #ff9d3f !important;
+	position: none !important;
+}
+
+
+Bar Blue
+.barBlue .sapTntNavLIItem{
+	background-color: rgba(153, 221, 215, 0.95) !important;
+}
+
+.barBlue .sapUiUfdSpltContPane{
+	background-color: rgba(153, 221, 215, 0.95) !important;
+	position: none !important;
+}
+
+
+.blueStatBox .sapMBtnInner{
+	height: 120px !important;	
+	width:120px !important;
+	background-color : rgba(153, 221, 215, 0.7) !important;
+}
+
+.sizeField .sapMInputBase{
+	width: 200px !important;
+}
+
+.borderLogo > .sapMTBStandard{
+	border-bottom: 0px !important;
+	border-color: white !important;
+} 
+
+Page Pro
+
+.blueBox {
+	background-color : rgba(153, 221, 215, 0.7) !important;
+}
+
+.colorGray > .sapMBtnDefault{
+	background-color: rgb(220,220,220) !important;
+}
+
+.space .sapMFlexBoxFit, .sapMFlexBoxScroll {
+    height: 100% !important;
+}
+
+Pro_Program_Seance
+
+.buttonSize > .sapMBtnInner{
+	height: 120px !important;	
+	width:120px !important;
+	background-color : rgba(255,255,255) !important;
+}
+
+.colorOrange > .sapMBtnDefault{
+	background-color: #ff9d3f !important;
+}
+
+Pro_Program_Seance_2
+
+.seanceSize > .sapMBtnInner{
+	height: 60px !important;	
+	width:150px !important;
+	background-color : rgba(255,255,255) !important;
+}
+
+.detailSeanceSize > .sapMInputBaseInner{
+	background-color: rgba(153, 221, 215, 0.7) !important;
+}
+
+.grayBox{
+	background-color: rgb(220,220,220, 0.7) !important;
+}

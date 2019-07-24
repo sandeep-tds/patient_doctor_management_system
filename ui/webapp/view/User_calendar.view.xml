@@ -1,0 +1,89 @@
+<mvc:View 
+	controllerName="com.todo.demo.ui.controller.User_calendar"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+    xmlns:me="sap.me"
+    xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" 
+	xmlns:tnt="sap.tnt"
+	xmlns:m="sap.m"
+	height="100%"
+	class="side-navigation-demo">
+	<m:App id="idAppControl" class="bar">
+		<m:pages>
+			<m:Page title="HOPE TEAM EAST">
+			<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+			
+			<!--NavBar Section-->
+			<u:secondaryContent >
+				<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+				<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://home" ></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://line-chart"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="" icon="sap-icon://decline"></tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</u:secondaryContent>
+			
+			<!--Content Section-->
+			<u:content>
+				<m:Toolbar class="borderLogo">
+					<m:ToolbarSpacer class="borderLogo" />
+					<!--Logo hte-->
+					<m:Image src="img/hte.png" width="4%"></m:Image>
+				</m:Toolbar>
+				
+				<!--Box-->
+				<m:HBox justifyContent="Center" alignItems="Start">
+					<l:VerticalLayout class="sapUiSmallMargin">
+						
+						<!--Buttons-->
+						<m:HBox justifyContent="Start" alignItems="Start">
+							<l:HorizontalLayout>
+								<m:Button text="Mois" press="changeToOneMonth" class="sapUiSmallMargin"/>
+								<m:Button text="Semaine" press="changeToOneWeek" class="sapUiSmallMargin"/>
+							</l:HorizontalLayout>
+						</m:HBox>	
+						
+						<!--Calendar-->
+						<me:Calendar id="durationCalendar" width="350px" />
+						
+						<m:HBox justifyContent="Start" alignItems="Start">
+						<l:HorizontalLayout>
+							<!--Aujourd'hui Box-->
+							<core:Icon src="sap-icon://border" class="sapUiSmallMargin" size="30px" color="rgb(171, 33, 142)" ></core:Icon>
+							<m:Text text="Aujourd'hui" class="sapUiSmallMargin"/>
+							
+							<!--Programmée Box-->
+							<core:Icon src="sap-icon://color-fill" class="sapUiSmallMargin" size="30px" color="rgb(173, 170, 168, 0.7)" ></core:Icon>
+							<m:Text text="Programmée" class="sapUiSmallMargin"/>
+							
+							<!--Validée Box-->
+							<core:Icon src="sap-icon://color-fill" class="sapUiSmallMargin" size="30px" color="rgba(153, 221, 215, 0.9);" ></core:Icon>
+							<m:Text text="Validée" class="sapUiSmallMargin"/>
+							
+							<!--Manquée Box-->
+							<core:Icon src="sap-icon://color-fill" class="sapUiSmallMargin" size="30px" color="rgb(255, 157, 63, 0.9)" ></core:Icon>
+							<m:Text text="Manquée" class="sapUiSmallMargin" />
+						</l:HorizontalLayout>
+						</m:HBox>
+						
+						<!--Some text-->
+						<m:HBox justifyContent="Center" alignItems="Start">
+							<m:Text text="Vos séances pour la semaine 10 sont prêtes" />
+						</m:HBox>
+						
+						<!-- Submit Button-->
+						<m:HBox justifyContent="Center" alignItems="End">
+								<m:Button text="Cliquez ici pour les programmer" press="onNavToSeances"/>
+						</m:HBox>
+					</l:VerticalLayout>
+				</m:HBox>		
+			</u:content>
+			
+			</u:SplitContainer>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

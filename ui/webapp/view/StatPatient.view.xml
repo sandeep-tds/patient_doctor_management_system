@@ -1,0 +1,81 @@
+<mvc:View
+controllerName="com.todo.demo.ui.controller.StatPatient"	
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:c="sap.suite.ui.microchart"
+xmlns:l="sap.ui.layout"
+xmlns:u="sap.ui.unified"
+xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true" 
+xmlns:tnt="sap.tnt"
+xmlns:m="sap.m"
+height="100%">
+	<m:App id="app" class="bar sizeField barBlue">
+		<m:pages>
+			<m:Page id="feedback" title="HOPE TEAM EAST">
+				<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+						
+					<!--NavBar Section-->
+					<u:secondaryContent >
+						<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+							<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://person-placeholder" ></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						</tnt:NavigationList>
+					</u:secondaryContent>
+					
+					<!--Content Section-->
+					<u:content>
+						<m:Toolbar>
+							<!--Menu List-->
+							<m:HBox justifyContent="Start" alignItems="Start" class="sapUiLargeMargin">
+								<m:MenuButton text="Menu" buttonMode="Split" defaultAction="onDefaultAction">
+									<m:menu>
+										<m:Menu itemSelected="onMenuAction">
+											<m:items>
+												<m:MenuItem text="Calendrier" icon="sap-icon://calendar" press="goPageCalendar"/>
+												<m:MenuItem text="Informations Patients" icon="sap-icon://meeting-room" press="goPageInfPat"/>
+												<m:MenuItem text="Statistique" icon="sap-icon://bar-chart" press="goPageStat"/>
+												<m:MenuItem text="Parametres" icon="sap-icon://action-settings" press="goPageParam" />
+												<m:MenuItem text="Se déconnecter" icon="sap-icon://log" press="goPageConnec"/>
+											</m:items>
+										</m:Menu>
+									</m:menu>
+								</m:MenuButton>
+							</m:HBox>
+							<m:ToolbarSpacer/>
+							<!--Logo hte-->
+							<m:Image src="img/hte.png" width="4%"></m:Image>
+						</m:Toolbar>
+						
+						<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+							<l:VerticalLayout>
+								
+								<!--Radius chart-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+									<c:RadialMicroChart size="Auto" percentage="45" press="press" class="sapUiSmallMargin"></c:RadialMicroChart>
+								</m:HBox> 
+							
+								<!--Some text-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+								<m:Text class="sapUiTinyMargin" text="Encore 10 km a faire ce mois ci pour atteindre l'objectif du mois" />
+								</m:HBox>
+								
+								<!--Some text-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+									<m:Text class="sapUiTinyMargin" text="Voir les statistiques en détails" />
+								</m:HBox>
+								
+								<!--Charts buttons-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+									<m:Button text="Suivi fatigue" press="goPageChart1" class="sapUiSmallMargin blueStatBox"/>
+									<m:Button text="Suivi A" press="goPageChart2" class="sapUiSmallMargin blueStatBox"/>
+								</m:HBox>
+							</l:VerticalLayout>
+						</m:HBox>
+					</u:content>
+				</u:SplitContainer>			
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

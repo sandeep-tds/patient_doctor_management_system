@@ -1,0 +1,151 @@
+<mvc:View 
+	controllerName="com.todo.demo.ui.controller.detailsSeance"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" 
+	xmlns:tnt="sap.tnt"
+	xmlns:m="sap.m"
+	height="100%"
+	class="side-navigation-demo">
+	<m:App id="idAppControl" class="bar detailSeanceSize">
+		<m:pages>
+			<m:Page title="HOPE TEAM EAST">
+			<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+			
+				<!--NavBar Section-->
+				<u:secondaryContent >
+					<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect" >
+						<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://home" ></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://line-chart"></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" icon="sap-icon://decline"></tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</u:secondaryContent>
+				
+				<!--Content Section-->
+				<u:content>
+					<m:Toolbar>
+						<m:ToolbarSpacer/>
+						<!--Logo hte-->
+						<m:Image src="img/hte.png" width="4%"></m:Image>
+					</m:Toolbar>
+					
+					<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+					<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+						
+						<m:ScrollContainer height="500px" width="700px" horizontal="true" vertical="true" focusable="true" class="grayBox" >
+
+							<m:HBox justifyContent="End" alignItems="End" class="sapUiTinyMargin">
+								<m:Button icon="sap-icon://decline" press="goPageProgSeance"/>
+							</m:HBox>
+							
+							<!--Title-->
+							<m:HBox class="sapUiMediumMargin">
+								<m:Title level="H2" text="Premier exercice" />
+							</m:HBox>
+							
+							<!--Description-->
+							<m:HBox class="sapUiTinyMargin">
+								<m:Label text="Consignes" labelFor="input-consignes"/>
+								<m:Text class="sapUiTinyMargin blueBox" id="input-consignes"
+								text="" />
+							</m:HBox>
+							
+							<!--Details-->
+							<smartForm:SmartForm id="smartForm">
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Nom de l'exercice">
+										<m:Text id="text06" text = "{EXERCICE_NAME}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Consigne">
+										<m:Text id="text0u6" text = "{CONSIGNE_DETAILS}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								<smartForm:Group label="">
+								<smartForm:GroupElement label="Répétition(s)">
+										<m:Text id="text0i6" text = "{NOMBRE_REPETITION}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Série(s)">
+										<m:Text id="text6" text = "{NOMBRE_SERIE}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Terrain">
+										<m:Text id="text" text = "{TERRAIN}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Durée">
+										<m:Text id="text0" text = "{DUREE}"/>
+									</smartForm:GroupElement>
+							</smartForm:Group>	
+							</smartForm:SmartForm>
+							
+													<!--Title-->
+							<m:HBox class="sapUiMediumMargin">
+								<m:Title level="H2" text="Deuxième exercice" />
+							</m:HBox>
+							
+							<!--Description-->
+							<m:HBox class="sapUiTinyMargin">
+								<m:Label text="Consignes" labelFor="input-consignes"/>
+								<m:Text class="sapUiTinyMargin blueBox" id="inpfut-consignes"
+								text="" />
+							</m:HBox>
+							
+							<!--Details-->
+							<smartForm:SmartForm id="smartForm2">
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Nom de l'exercice">
+										<m:Text id="textr06" text = "{EXERCICE_NAME}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Consigne">
+										<m:Text id="text0ru6" text = "{CONSIGNE_DETAILS}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								<smartForm:Group label="">
+								<smartForm:GroupElement label="Répétition(s)">
+										<m:Text id="text0ri6" text = "{NOMBRE_REPETITION}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Série(s)">
+										<m:Text id="texrt6" text = "{NOMBRE_SERIE}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Terrain">
+										<m:Text id="terxt" text = "{TERRAIN}"/>
+									</smartForm:GroupElement>
+								</smartForm:Group>
+								
+								<smartForm:Group label="">
+									<smartForm:GroupElement label="Durée">
+										<m:Text id="terxt0" text = "{DUREE}"/>
+									</smartForm:GroupElement>
+							</smartForm:Group>	
+							</smartForm:SmartForm>
+						</m:ScrollContainer>
+					</m:HBox>
+					</m:VBox>
+				</u:content>
+			</u:SplitContainer>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

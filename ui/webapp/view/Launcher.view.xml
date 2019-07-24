@@ -1,0 +1,95 @@
+<core:View xmlns:html="http://www.w3.org/1999/xhtml" 
+xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" 
+xmlns="sap.m" 
+xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" 
+height="100%" 
+controllerName="com.todo.demo.ui.controller.Launcher" 
+displayBlock="true">	
+	<App class="connexion">
+	<pages>
+	<Page id="mainPage" enableScrolling="true" title=" ">
+
+		<content>
+					<FlexBox justifyContent="Center" alignItems="Start">
+						<items>
+							<Image src="img/backgroundHTE.png" width="100%" height="30%">
+							</Image>
+						</items>
+					</FlexBox>
+					
+					<VBox class="sapUiSmallMargin colorBackground" justifyContent="Center" alignItems="Center" cd:w5g.dt.context="/USER">
+						<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1" class="sapUiLargeMargin colorBackgroundForm">
+							<f:toolbar>
+								<Toolbar id="TB1">
+									<!-- TODO Center-->
+									<Title id="Title1" text="{i18n>Connexion}" textAlign="Center" level="H4" titleStyle="H4"/>
+									<ToolbarSpacer/>
+								</Toolbar>
+							</f:toolbar>
+							
+							<f:layout>
+								<f:ResponsiveGridLayout/>
+							</f:layout>
+							
+							<f:formContainers>
+								<f:FormContainer ariaLabelledBy="Title2">
+									<f:toolbar>
+											<Toolbar>
+												<Title id="Title2" level="H5" titleStyle="H5" text="{i18n>WelcomeC}"/>
+												<ToolbarSpacer/>
+											</Toolbar>
+										</f:toolbar>
+											
+									<f:formElements>
+										<f:FormElement>
+													<f:fields>
+														<Input placeholder="{i18n>Name}" value="{SPORT}" id="name"/>
+													</f:fields>
+										</f:FormElement>
+										
+										<!--Put correct type-->
+									
+										
+										<f:FormElement>
+											<f:fields>
+												<Input placeholder="{i18n>Password}" value="{}" id="password" type="Password"/>
+											</f:fields>
+										</f:FormElement>
+									</f:formElements>
+								</f:FormContainer>
+							</f:formContainers>
+						</f:Form>
+
+					</VBox>
+					
+					
+					<HBox justifyContent="Center" alignItems="Center">
+						<Toolbar>
+						
+						<Button text="{i18n>Go}" press="goPageFeedback">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+						</Button>
+						<Button text="{i18n>ToInscription}" press="goPageInscription">
+							
+						</Button>
+						<Button text="{i18n>Pro}" press="goPagePro">
+							
+						</Button>
+						<!--<Button text="{i18n>Patient}"-->
+						<!--		press="goPagePatient">-->
+							
+						<!--</Button>-->
+						<Button text="{i18n>Modif}" press="goModif">
+							
+						</Button>
+						</Toolbar>
+					</HBox>
+
+				</content>
+	</Page>
+	</pages>
+	</App>
+</core:View>

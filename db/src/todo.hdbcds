@@ -1,0 +1,50 @@
+@OData.publish : true
+context todo {
+
+    /*@@layout{"layoutInfo":{"x":132,"y":30.5}}*/
+    entity CLE {
+        key NUMERO_CLE : Integer not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-188,"y":-13.5}}*/
+    entity SPORT {
+        key SPORT_ID      : Integer     not null;
+            EXERCICE_NAME : String(100) not null;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-464,"y":-68.5}}*/
+    entity CONSIGNE {
+        key CONSIGNE_ID       : Integer not null;
+            USER_ID           : Integer;
+            EXERCICE_NAME     : String(500);
+            CONSIGNE_DETAILS  : String(100);
+            TERRAIN           : String(10);
+            NOMBRE_SERIE      : String(10);
+            NOMBRE_REPETITION : String(10);
+            DUREE             : String(10);
+            DISTANCE          : String(10);
+            VITESSE_MOY       : String(10);
+            FREQ_CARD         : String(10);
+            PERC_EFFORT       : String(10);
+            PERC_DOULEUR      : String(10);
+            FK_SPORT_ID       : association[*, 1..1] to todo.SPORT { SPORT_ID };
+    };
+
+    /*@@layout{"layoutInfo":{"x":-758,"y":-69.5}}*/
+    entity USER {
+        key ID                    : Integer    not null;
+            USER_NAME             : String(50) not null;
+            USER_FIRST_NAME       : String(50) not null;
+        key MAIL                  : String(70) not null;
+            HASH                  : String(10);
+            STATUS                : Integer    not null;
+            PROFESSION            : String(10);
+            QUALITE               : String(10);
+            INSTITUT_RATTACHEMENT : String(100);
+            NUMERO_CARTE_PRO      : Integer;
+            NUMERO_SIRET          : Integer;
+            NUMERO_PRACTICIEN     : Integer;
+            LIEU_EXERCICE         : String(100);
+            CREER_SEANCE          : association[*] to todo.CONSIGNE on CREER_SEANCE.USER_ID = ID;
+    };
+};

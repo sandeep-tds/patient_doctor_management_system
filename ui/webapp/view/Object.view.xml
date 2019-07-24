@@ -1,0 +1,49 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" controllerName="com.todo.demo.ui.controller.Object">
+
+<ObjectHeader xmlns="sap.m" title="{title}" id="header0">
+
+    <statuses>
+
+        <ObjectStatus text="Success" state="Success" id="status0"/>
+
+        
+
+    </statuses>
+
+    <attributes>
+
+        <ObjectAttribute text="10 units" id="attribute0"/>
+
+        
+
+    </attributes>
+
+    </ObjectHeader>
+
+<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form0">
+
+    <sap.ui.layout.form:content>
+
+        <sap.ui.core:Title text="Status &amp; Notes" id="title0"/><RadioButtonGroup xmlns="sap.m" columns="1" id="group0_1544107194012" selectedIndex="{status}">
+
+            <buttons>
+
+                <RadioButton text="New" id="button0"/>
+
+                <RadioButton text="Completed" id="button1"/>
+
+                </buttons>
+
+            
+
+        </RadioButtonGroup>
+
+        <Label text="Status" id="label0"/>
+
+        <Label text="{note}" id="label1"/>
+
+        <Input width="100%" id="input2"/></sap.ui.layout.form:content>
+
+</sap.ui.layout.form:SimpleForm>
+
+</mvc:View>

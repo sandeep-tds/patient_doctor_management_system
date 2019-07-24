@@ -1,0 +1,58 @@
+<!--<?xml version='1.0' encoding='UTF-8'?>-->
+<!--<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">-->
+<!--	<edmx:DataServices>-->
+<!--		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="todo">-->
+<!--		<EntityType Name="SPORT">-->
+<!--				<Property Name="SPORT" Type="Edm.String" Nullable="false" MaxLength="10"/>-->
+
+<!--			</EntityType>-->
+			
+<!--			<EntityType Name="USER">-->
+<!--				<Key>-->
+<!--					<PropertyRef  Name="USER_ID"/>-->
+<!--				</Key>-->
+				
+<!--				<Property Name="USER_ID" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="USER_NAME" Type="Edm.String" Nullable="false" MaxLength="50"></Property>-->
+<!--				<Property Name="USER_FIRST_NAME" Type="Edm.String" Nullable="false" MaxLength="100"></Property>-->
+<!--				<Property Name="MAIL" Type="Edm.String" Nullable="false" MaxLength="50"></Property>-->
+<!--				<Property Name="HASH" Type="Edm.String" Nullable="true" MaxLength="10"></Property>-->
+<!--				<Property Name="STATUS" Type="Edm.Int16" Nullable="false" MaxLength="100"></Property>-->
+<!--				<Property Name="PROFESSION" Type="Edm.String" Nullable="true" MaxLength="10"></Property>-->
+<!--				<Property Name="QUALITE" Type="Edm.String" Nullable="true" MaxLength="10"></Property>-->
+<!--				<Property Name="INSTITUT_RATTACHEMENT" Type="Edm.String" Nullable="true" MaxLength="100"></Property>-->
+<!--				<Property Name="NUMERO_CARTE_PRO" Type="Edm.Int16" Nullable="true" MaxLength="10"></Property>-->
+<!--				<Property Name="NUMERO_SIRET" Type="Edm.Int16" Nullable="true" MaxLength="50"></Property>-->
+<!--				<Property Name="NUMERO_PRACTICIEN" Type="Edm.Int16" Nullable="true" MaxLength="50"></Property>-->
+<!--				<Property Name="LIEU_EXERCICE" Type="Edm.String" Nullable="true" MaxLength="50"></Property>-->
+<!--			</EntityType>-->
+			
+<!--	<EntityType Name="CONSIGNE">-->
+<!--					<Key>-->
+<!--					<PropertyRef  Name="USER_ID"/>-->
+<!--					<PropertyRef  Name="CONSIGNE_ID"/>-->
+<!--				</Key>-->
+				
+<!--				<Property Name="CONSIGNE_ID" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="USER_ID" Type="Edm.Int16" Nullable="false" MaxLength="10" ></Property>-->
+<!--				<Property Name="CONSIGNE_NAME" Type="Edm.String" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="DENIVELE" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="TERRAIN" Type="Edm.String" Nullable="false" MaxLength="100"></Property>-->
+<!--				<Property Name="NOMBRE_SERIE" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="NOMBRE_REPETITION" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="DUREE" Type="Edm.Int16" Nullable="false" MaxLength="100"></Property>-->
+<!--				<Property Name="DISTANCE" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="VITESSE_MOY" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="FREQ_CARD" Type="Edm.Int16" Nullable="false" MaxLength="100"></Property>-->
+<!--				<Property Name="PERC_EFFORT" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--				<Property Name="PERC_DOULEUR" Type="Edm.Int16" Nullable="false" MaxLength="10"></Property>-->
+<!--			</EntityType>-->
+	
+<!--			<EntityContainer Name="EntityContainer_16ED33654DD94D7FA71D8CBCD0F62216">-->
+<!--			<EntitySet Name="SPORT" EntityType="todo.SPORT"></EntitySet>-->
+<!--				<EntitySet Name="USER" EntityType="todo.USER"></EntitySet>-->
+<!--			<EntitySet Name="CONSIGNE" EntityType="todo.CONSIGNE"></EntitySet>-->
+<!--			</EntityContainer>-->
+<!--		</Schema>-->
+<!--	</edmx:DataServices>-->
+<!--</edmx:Edmx>-->

@@ -1,0 +1,141 @@
+<mvc:View
+controllerName="com.todo.demo.ui.controller.Modif"
+
+xmlns:html="http://www.w3.org/1999/xhtml" 
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:l="sap.ui.layout"
+xmlns:f="sap.ui.layout.form"
+xmlns:u="sap.ui.unified"
+xmlns:tnt="sap.tnt"
+xmlns:core="sap.ui.core"
+displayBlock="true" 
+xmlns:m="sap.m"
+xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+xmlns:smartForm="sap.ui.comp.smartform" 
+xmlns:smartField="sap.ui.comp.smartfield">
+	<m:App id="app" class="bar sizeField">
+		<m:pages>
+			<m:Page id="smartFormPage" title=" ">
+			
+			<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+					
+				<!--NavBar Section-->
+				<u:secondaryContent >
+					<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+						<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://home" ></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://line-chart"></tnt:NavigationListItem>
+						<tnt:NavigationListItem text="" icon="sap-icon://decline"></tnt:NavigationListItem>
+					</tnt:NavigationList>
+				</u:secondaryContent>
+				
+				<!--Content Section-->
+				<u:content>
+					<m:Toolbar>
+						<m:ToolbarSpacer/>
+						<!--Logo hte-->
+						<m:Image src="img/hte.png" width="4%"></m:Image>
+					</m:Toolbar>
+					
+					<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+					<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+						
+						<m:ScrollContainer height="590px" width="700px" horizontal="true" vertical="true" focusable="true">
+				
+						<m:HBox justifyContent="Center" alignItems="Center">
+							<core:Icon src="sap-icon://person-placeholder" size="80px" color="rgb(26, 51, 148, 0.7)" class="sapUiSmallMargin" ></core:Icon>
+						</m:HBox>
+						<m:HBox justifyContent="Center" alignItems="Center">
+							<m:Link text="Changer le mot de passe" press="onPress" />
+							<!--<m:Text id="text01" text = "{USER_FIRST_NAME}"/>-->
+						</m:HBox>
+						
+						<smartForm:SmartForm 
+							id="smartForm" 
+							editTogglable="true" 
+							title=""
+							
+							flexEnabled="false">
+								
+								<smartForm:Group label="Informations utilisateur" >
+									<smartForm:GroupElement  label="Prénom">
+										<m:Text id="text02" text = "{USER_FIRST_NAME}"/>
+									</smartForm:GroupElement>
+									<smartForm:GroupElement  label="Nom">
+										<m:Text id="text03" text = "{USER_NAME}"/>
+									</smartForm:GroupElement>									
+									<smartForm:GroupElement  label="Mail">
+										<m:Text id="text04" text = "{MAIL}"/>
+									</smartForm:GroupElement>
+									<smartForm:GroupElement  label="Profession">
+										<m:Text id="text05" text = "{PROFESSION}"/>
+									</smartForm:GroupElement>		
+									<!--<smartForm:GroupElement  label="Institut de rattachement">-->
+									<!--	<m:Text id="text06" text = "{INSTITUT_RATTACHEMENT}"/>-->
+									<!--</smartForm:GroupElement>-->
+									<!--<smartForm:GroupElement  label="Numéro carte pro">-->
+									<!--	<m:Text id="text07" text = "{NUMERO_CARTE_PRO}"/>-->
+									<!--</smartForm:GroupElement>									-->
+									<!--<smartForm:GroupElement  label="Numéro SIRET">-->
+									<!--	<m:Text id="text08" text = "{NUMERO_SIRET}"/>-->
+									<!--</smartForm:GroupElement>-->
+									<!--<smartForm:GroupElement  label="Numéro practicien">-->
+									<!--	<m:Text id="text09" text = "{NUMERO_PRACTICIEN}"/>-->
+									<!--</smartForm:GroupElement>									-->
+									<!--<smartForm:GroupElement label="Prénom">-->
+									<!--	<smartField:SmartField value="{Hola}"/>-->
+									<!--</smartForm:GroupElement>-->
+									
+									<!--<smartForm:GroupElement label="Né(e) le">-->
+									<!--	<smartField:SmartField value="{Hola}"/>-->
+									<!--</smartForm:GroupElement>-->
+									
+									<!--<smartForm:GroupElement label="Age">-->
+									<!--	<smartField:SmartField  value="{Hola}"/>-->
+									<!--</smartForm:GroupElement>-->
+									
+									<!--<smartForm:GroupElement label="Email">-->
+									<!--	<smartField:SmartField  value="{Hola}"/>-->
+									<!--</smartForm:GroupElement>-->
+									
+									<!--<smartForm:GroupElement label="Téléphone">-->
+									<!--	<smartField:SmartField  value="{Hola}"/>-->
+									<!--</smartForm:GroupElement>-->
+								</smartForm:Group>
+								
+								<!--<smartForm:Group label="Informations Hope Team East">-->
+								<!--	<smartForm:GroupElement label="Défi">-->
+								<!--		<smartField:SmartField value="{Hola}"/>-->
+								<!--	</smartForm:GroupElement>-->
+									
+								<!--	<smartForm:GroupElement label="Matériel">-->
+								<!--		<smartField:SmartField value="{Hola}"/>-->
+								<!--	</smartForm:GroupElement>-->
+									
+								<!--	<smartForm:GroupElement label="Groupe">-->
+								<!--		<smartField:SmartField value="{Hola}"/>-->
+								<!--	</smartForm:GroupElement>-->
+									
+								<!--	<smartForm:GroupElement label="Notes">-->
+								<!--		<smartField:SmartField  value="{Hola}"/>-->
+								<!--	</smartForm:GroupElement>-->
+								<!--</smartForm:Group>-->
+								
+						</smartForm:SmartForm>
+						<m:HBox justifyContent="Center" alignItems="Center">
+					<!--	<m:Button text="Enregistrer" press="onPress" value = ""/>-->
+					
+						</m:HBox>
+						
+						</m:ScrollContainer>
+						
+					</m:HBox>
+					</m:VBox>
+				</u:content>
+				
+			</u:SplitContainer>			
+				
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

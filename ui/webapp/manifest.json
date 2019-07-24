@@ -1,0 +1,334 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "com.todo.demo.ui",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v4/todo/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.3worklistodatav4",
+			"version": "1.58.1"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.todo.demo.ui.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.48",
+			"libs": {
+				"sap.f": {},
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {
+					"minVersion": ""
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.todo.demo.ui.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$auto",
+					"synchronizationMode": "None"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js": []
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.todo.demo.ui.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "appHome",
+					"target": "home"
+				},
+				{
+					"pattern": "inscription",
+					"name": "inscriptionPage",
+					"target": "inscription"
+				},
+				{
+					"pattern": "feedback2",
+					"name": "feedback2Page",
+					"target": "feedback2"
+				},
+				{
+					"pattern": "pro",
+					"name": "ProPage",
+					"target": "pro"
+				},
+				{
+					"pattern": "patient",
+					"name": "PatientPage",
+					"target": "patient"
+				},
+				{
+					"pattern": "proProgSeance",
+					"name": "proProgSeancePage",
+					"target": "proProgSeance"
+				},
+				{
+					"pattern": "userCal",
+					"name": "userCalPage",
+					"target": "userCal"
+				},
+				{
+					"pattern": "userStat",
+					"name": "userStatPage",
+					"target": "userStat"
+				},
+				{
+					"pattern": "userProg",
+					"name": "userProgPage",
+					"target": "userProg"
+				},
+				{
+					"pattern": "proProgSeance1",
+					"name": "proProgSeance1Page",
+					"target": "proProgSeance1"
+				},
+				{
+					"pattern": "proProgSeance2",
+					"name": "proProgSeance2Page",
+					"target": "proProgSeance2"
+				}
+				,
+				{
+					"pattern": "modifPro",
+					"name": "modifProPage",
+					"target": "modifPro"
+				},				
+				{
+					"pattern": "chart1",
+					"name": "chart1Page",
+					"target": "chart1"
+				},
+				{
+					"pattern": "chart2",
+					"name": "chart2Page",
+					"target": "chart2"
+				},
+				{
+					"pattern": "modif",
+					"name": "modifPage",
+					"target": "modif"
+				},
+				{
+					"pattern": "detailSeance",
+					"name": "detailSeancePage",
+					"target": "detailSeance"
+				},
+				{
+					"pattern": "infoPatient",
+					"name": "infoPatientPage",
+					"target": "infoPatient"
+				},
+				{
+					"pattern": "statPatient",
+					"name": "statPatientPage",
+					"target": "statPatient"
+				},
+				{
+					"pattern": "chart1Pro",
+					"name": "chart1ProPage",
+					"target": "chart1Pro"
+				},
+				{
+					"pattern": "chart2Pro",
+					"name": "chart2ProPage",
+					"target": "chart2Pro"
+				}
+			],
+			"targets": {
+				"home": {
+					
+					"viewName": "Launcher",
+					"viewLevel": 1
+					
+				},
+				"inscription": {
+					"viewId":"inscriptionPage",
+					"viewName": "Inscription",
+					"viewLevel": 2
+					
+				},
+				"feedback2": {
+					"viewId":"feedback2Page",
+					"viewName": "Feedback2",
+					"viewLevel": 3
+					
+				},
+				"pro": {
+					"viewId":"ProPage",
+					"viewName": "PagePro",
+					"viewLevel": 4
+					
+				},
+				"patient": {
+					"viewId":"PatientPage",
+					"viewName": "PagePatient",
+					"viewLevel": 5
+					
+				},
+				"proProgSeance": {
+					"viewId":"proProgSeancePage",
+					"viewName": "Pro_Program_Seance",
+					"viewLevel": 6
+					
+				},
+				"userCal": {
+					"viewId":"userCal",
+					"viewName": "User_calendar",
+					"viewLevel": 7
+					
+				},
+				"userStat": {
+					"viewId":"userStat",
+					"viewName": "User_statistique",
+					"viewLevel": 8
+					
+				},
+				"userProg": {
+					"viewId":"userProg",
+					"viewName": "User_prog_seance",
+					"viewLevel": 9
+					
+				},
+				"proProgSeance1": {
+					"viewId":"proProgSeance1Page",
+					"viewName": "Pro_Program_Seance_1",
+					"viewLevel": 10
+					
+				},
+				"proProgSeance2": {
+					"viewId":"proProgSeance2Page",
+					"viewName": "Pro_Program_Seance_2",
+					"viewLevel": 11
+					
+				},
+				"modifPro": {
+					"viewId":"modifProPage",
+					"viewName": "ModifPro",
+					"viewLevel": 12
+					
+				},
+				"chart1": {
+					"viewId":"chart1Page",
+					"viewName": "Chart1",
+					"viewLevel": 13
+					
+				},
+				"chart2": {
+					"viewId":"chart2Page",
+					"viewName": "Chart2",
+					"viewLevel": 14
+					
+				},
+				"modif": {
+					"viewId":"modifPage",
+					"viewName": "Modif",
+					"viewLevel": 15 
+					
+				},
+				"detailSeance": {
+					"viewId":"detailSeancePage",
+					"viewName": "detailsSeance",
+					"viewLevel": 16 
+					
+				},
+				"infoPatient": {
+					"viewId":"infoPatientPage",
+					"viewName": "InfoPatient",
+					"viewLevel": 17 
+				},
+				"statPatient": {
+					"viewId":"statPatientPage",
+					"viewName": "StatPatient",
+					"viewLevel": 18
+				},
+				"chart1Pro": {
+					"viewId":"chart1ProPage",
+					"viewName": "Chart1Pro",
+					"viewLevel": 19
+					
+				},
+				"chart2Pro": {
+					"viewId":"chart2ProPage",
+					"viewName": "Chart2Pro",
+					"viewLevel": 20
+					
+				},
+            "notFound": {
+               "viewId": "notFound",
+               "viewName": "NotFound",
+               "transition": "show"
+            }
+			}
+		}
+		
+	}
+}

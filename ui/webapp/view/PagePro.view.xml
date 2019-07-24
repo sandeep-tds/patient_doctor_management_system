@@ -1,0 +1,88 @@
+<mvc:View controllerName="com.todo.demo.ui.controller.PagePro" 
+xmlns:html="http://www.w3.org/1999/xhtml" 
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:core="sap.ui.core"
+displayBlock="true" 
+xmlns:m="sap.m">
+	<m:App id="idAppControl" class="space">
+		<m:pages>
+			<m:Page title="Hope Team East">
+				<m:content>
+					<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+					
+						<!--User image-->
+						<m:VBox justifyContent="Center" alignItems="Center">
+							<core:Icon src="sap-icon://person-placeholder" size="80px" color="rgb(26, 51, 148, 0.7)" class="sapUiSmallMargin" ></core:Icon>
+						</m:VBox>
+						
+						<!--User name-->
+						<m:VBox justifyContent="Center" alignItems="Center">
+							<m:Text class="sapUiTinyMargin"
+								text="Nom pro" />
+						</m:VBox>
+						
+						<!--Link change password-->
+						<m:VBox justifyContent="Center" alignItems="Center">
+							<m:Button class="sapUiSmallMargin colorGray" text="Modifier mes informations" press="goPageModifPro" />
+						</m:VBox>
+						
+						<!--Patients-->
+						<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout blueBox" header="Patient 1" subheader="Subheader" press="goPagePatient">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+							
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout blueBox" header="Patient 2" subheader="Subheader">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+							
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout blueBox" header="Patient 3" subheader="Subheader">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+							
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout blueBox" header="Patient 4" subheader="Subheader">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+						</m:HBox>
+						
+						<!--Patients-->
+						<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout blueBox" header="Patient 5" subheader="Subheader" >
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+							
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout blueBox" header="Patient 6" subheader="Subheader">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+							
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout blueBox" header="Patient 7" subheader="Subheader">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+							
+							<m:GenericTile class="sapUiTinyMarginBegin sapUiMediumMarginTop tileLayout blueBox" header="Patient 8" subheader="Subheader">
+								<m:TileContent unit="Unit" footer="Footer">
+								<m:ImageContent src="sap-icon://line-charts" />
+								</m:TileContent>
+							</m:GenericTile>
+						</m:HBox>
+					
+					</m:VBox>
+				</m:content>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>

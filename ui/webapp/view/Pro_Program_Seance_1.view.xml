@@ -1,0 +1,150 @@
+<mvc:View
+controllerName="com.todo.demo.ui.controller.Pro_Program_Seance_1"	
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:smartForm="sap.ui.comp.smartform" 
+xmlns:smartField="sap.ui.comp.smartfield"
+xmlns:l="sap.ui.layout"
+xmlns:u="sap.ui.unified"
+xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true" 
+xmlns:tnt="sap.tnt"
+xmlns:m="sap.m"
+height="100%">
+	<m:App id="app" class="bar sizeField barBlue">
+		<m:pages>
+			<m:Page id="feedback" title="HOPE TEAM EAST">
+				<u:SplitContainer id="mySplitContainer" showSecondaryContent="true">
+						
+					<!--NavBar Section-->
+					<u:secondaryContent >
+						<tnt:NavigationList id="navigationList" width="80px" itemSelect="onSelect">
+							<tnt:NavigationListItem text="" id="userCalPage" icon="sap-icon://person-placeholder" ></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="modifPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+							<tnt:NavigationListItem text="" id="userStatPage" icon="sap-icon://person-placeholder"></tnt:NavigationListItem>
+						</tnt:NavigationList>
+					</u:secondaryContent>
+					
+					<!--Content Section-->
+					<u:content>
+						<m:Toolbar>
+							<!--Menu List-->
+							<m:HBox justifyContent="Start" alignItems="Start" class="sapUiLargeMargin">
+								<m:MenuButton text="Menu" buttonMode="Split" defaultAction="onDefaultAction">
+									<m:menu>
+										<m:Menu itemSelected="onMenuAction">
+											<m:items>
+												<m:MenuItem text="Calendrier" icon="sap-icon://calendar" press="goPageCalendar"/>
+												<m:MenuItem text="Informations Patients" icon="sap-icon://meeting-room" press="goPageInfPat"/>
+												<m:MenuItem text="Statistique" icon="sap-icon://bar-chart" press="goPageStat"/>
+												<m:MenuItem text="Parametres" icon="sap-icon://action-settings" press="goPageParam" />
+												<m:MenuItem text="Se déconnecter" icon="sap-icon://log" press="goPageConnec"/>
+											</m:items>
+										</m:Menu>
+									</m:menu>
+								</m:MenuButton>
+							</m:HBox>
+							<m:ToolbarSpacer/>
+							<!--Logo hte-->
+							<m:Image src="img/hte.png" width="4%"></m:Image>
+						</m:Toolbar>
+						
+						<m:VBox fitContainer="true" justifyContent="Center" alignItems="Center">
+						<m:HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+							
+							<m:ScrollContainer height="600px" width="700px" horizontal="true" vertical="true" focusable="true">
+						
+								<!--Some text	-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+									<m:Text class="sapUiTinyMargin" text="Semaine n+1" />
+								</m:HBox>
+								
+								<!--Some text	-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+									<m:Text class="sapUiTinyMargin" text="Séance 1/3" />
+								</m:HBox>
+							
+								<smartForm:SmartForm id="smartForm">
+									
+									<!--Training information-->
+									<smartForm:Group label="">
+										<smartForm:GroupElement label="Exercice">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Consignes">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Type de terrain">
+											<l:VerticalLayout
+												class="sapUiContentPadding"
+												width="100%">
+												<m:ActionSelect
+													id="select1"
+													items="{
+														path: '/TypeTerrain',
+														sorter: { path: 'Name' }
+													}">
+													<m:items>
+														<core:Item key="{ProductId}" text="{Name}" />
+													</m:items>
+												</m:ActionSelect>
+											</l:VerticalLayout>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Nombre de série(s)">
+											<l:VerticalLayout
+												class="sapUiContentPadding"
+												width="100%">
+												<m:ActionSelect
+													id="select2"
+													items="{
+														path: '/NbSerie',
+														sorter: { path: 'Name' }
+													}">
+													<m:items>
+														<core:Item key="{ProductId}" text="{Name}" />
+													</m:items>
+												</m:ActionSelect>
+											</l:VerticalLayout>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Nombre de rep(s)">
+											<l:VerticalLayout
+												class="sapUiContentPadding"
+												width="100%">
+												<m:ActionSelect
+													id="select3"
+													items="{
+														path: '/NbRep',
+														sorter: { path: 'Name' }
+													}">
+													<m:items>
+														<core:Item key="{ProductId}" text="{Name}" />
+													</m:items>
+												</m:ActionSelect>
+											</l:VerticalLayout>
+										</smartForm:GroupElement>
+											
+										<smartForm:GroupElement label="Durée (minutes)">
+											<smartField:SmartField value="{Hola}"/>
+										</smartForm:GroupElement>
+									</smartForm:Group>
+									
+								</smartForm:SmartForm>
+								
+								<!--Submit button-->
+								<m:HBox justifyContent="Center" alignItems="Center">
+									<m:Button text="Suivant" press="goproProgSeance2" class="colorOrange"/>
+								</m:HBox>
+								
+							</m:ScrollContainer>
+						</m:HBox>
+						</m:VBox>
+					</u:content>
+				</u:SplitContainer>			
+			</m:Page>
+		</m:pages>
+	</m:App>
+</mvc:View>
