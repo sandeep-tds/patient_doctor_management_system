@@ -8,7 +8,7 @@
     {
       "source": "/odata/v4",
       "authenticationType": "none",
-      "destination": "service_api",
+      "destination": "pdms-backend-api",
       "csrfProtection": false
     },
     {
