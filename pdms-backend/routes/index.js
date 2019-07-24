@@ -31,6 +31,23 @@ router.get('/', function (req, res) {
 	});
 });
 
+router.get('/getUserInfo', function(req, res, next) {
+	var accessToken = req.headers['authorization'];
+	accessToken = accessToken.substring('Bearer '.length);
+	var uaa = xsenv.getServices({
+	  uaa: {
+		tag: 'xsuaa'
+	  }
+	}).uaa;
+	return xssec.createSecurityContext(accessToken, uaa, (err, securityContext) => {
+	  if (err) {
+		res.status(400).send("Error");
+	  }
+	  res.send(securityContext.userInfo);
+	});
+  });
+
+
 //------------------------------------------------------------------------------------------------------------
 //Database task routes
 
@@ -57,9 +74,9 @@ router.put('/dbtask/addPatient', function (req, res) {
 	// var symptoms = req.body.symptoms;
 	// var diagnosis = req.body.diagnosis;
 	// var doctorId = doctorLogonId;
-	
+
 	var name = req.body.name;
-	var lastname = req.body.symptoms;
+	var lastname = req.body.lastname;
 	var email = req.body.email;
 	var password = req.body.password;
 	var address = req.body.address;

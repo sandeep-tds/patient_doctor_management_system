@@ -28,7 +28,7 @@ modules:
       disk-quota: 256M
       memory: 256M
    provides:
-    - name: pdms-backend_api
+    - name: pdms-backend-api
       properties:
          backend_app_url: ${default-url}
    requires:
