@@ -22,6 +22,15 @@ modules:
          url: ~{url}
     - name: uaa_todo
 
+
+ - name: pdms-backend
+   type: nodejs
+   path: pdms-backend
+   provides:
+    - name: pdms-backend_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: uaa_todo
    parameters:
