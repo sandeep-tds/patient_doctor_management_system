@@ -13,29 +13,39 @@ modules:
    build-parameters:
       builder: grunt
    requires:
-    - name: service_api
+    - name: uaa_todo
+    - name: pdms-backend-api
       group: destinations
       properties:
+         name: pdms-backend-api
+         url: '~{backend_app_url}'
          forwardAuthToken: true
-         strictSSL: false
-         name: service_api
-         url: ~{url}
-    - name: uaa_todo
-
 
  - name: pdms-backend
    type: nodejs
    path: pdms-backend
+   parameters:
+      disk-quota: 256M
+      memory: 256M
    provides:
     - name: pdms-backend_api
       properties:
-         url: ${default-url}
+         backend_app_url: ${default-url}
+   requires:
+      - name: pdms-postgres-rdb
+        group: postgresql
+      - name: uaa_todo
 
 resources:
  - name: uaa_todo
    parameters:
       path: ./xs-security.json
       service-plan: application
-      service: xsuaa
+   type: com.sap.xs.uaa
+
+ - name: pdms-postgres-rdb
    type: org.cloudfoundry.managed-service
+   parameters:
+      service-plan: v9.4-dev
+      service: postgresql
 
