@@ -73,14 +73,12 @@
 												<Input placeholder="{i18n>Country}" id="country" >
 												</Input>
 										    <VBox>
-												<Select
+												<Select id="doctorId"
 													forceSelection="false"
-													selectedKey="{patient>/SelectedPracticien}"
-													items="{
-														path: 'patient>/PracticienList',
-														sorter: { path: 'patient>Name' }
-													}">
-													<core:Item key="{patient>PracticienId}" text="{patient>Name}" />
+													selectedKey="John">
+													<core:Item key="John" text="John" />
+													<core:Item key="Herve" text="Herve" />
+													<core:Item key="Gerger" text="Gerger" />
 												</Select>
 											</VBox>
 												<!--<Select width="100%" id="country" >-->

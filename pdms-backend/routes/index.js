@@ -69,11 +69,14 @@ router.get('/dbtask/selectMyPatients', function (req, res) {
 *  We pass the parameters in the body of our URL call
 */
 router.post('/dbtask/addPatient', function (req, res) {
-	//Change made
+	// Change made
 	// var name = req.body.name;
 	// var symptoms = req.body.symptoms;
 	// var diagnosis = req.body.diagnosis;
 	// var doctorId = doctorLogonId;
+   console.log("\nPrinting the custom logs:");
+   console.log("\nPrinting the Body:", req.body);
+   console.log("\nPrinting the first patient's details:", req.body.patients[0]);
    
 	var name = req.body.patients[0].firstName;
 	// var lastname = req.body.patients[0].lastname;
