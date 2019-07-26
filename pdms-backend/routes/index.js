@@ -85,7 +85,7 @@ router.post('/dbtask/addPatient', function (req, res) {
 	var zipcode = req.body.patients[0].zipcode;
 	var country = req.body.patients[0].country;
 	var doctorId = req.body.patients[0].doctorId;
-	res.send(dbInterface.addPatient(name, lastname, email, password, address, city, zipcode, country, doctorId, function (result, error) {
+	res.send(dbInterface.addPatient(name, email, password, address, city, zipcode, country, doctorId, function (result, error) {
 		if (error) {
 			res.send(400, "Error! Could not insert values");
 		}
