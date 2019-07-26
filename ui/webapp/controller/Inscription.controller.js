@@ -15,53 +15,42 @@ sap.ui.define([
 			var userModel = new JSONModel(user);
 			this.getView().setModel(userModel);
 			
-			//selection practicien
-			// var oData = {
-			// 	"SelectedPracticien": "1",
-			// 	"PracticienList": [
-			// 		{
-			// 			"PracticienId": "1",
-			// 			"Name": "Julien"
-			// 		},
-			// 		{
-			// 			"PracticienId": "2",
-			// 			"Name": "Hevet Sandrine"
-			// 		},
-			// 		{
-			// 			"PracticienId": "3",
-			// 			"Name": "Christian Vault"
-			// 		}
-			// 	             ]
-			// };
+		
 			
 			var that = this;
-			$.ajax({
+			
+			// $.ajax({
 			        
-			        url : '/patient_service/hopeteameast/insert_sign_in.xsjs?command=getcoachName',
-			        type : 'GET',
-			        // dataType : 'json',   // pas nécessaire mais au cas où..
-			        async: true,
-			        success : function(data){
-			        	console.log("ajax call working");
-			        	console.log(data);
-			        	var oData = data;
-						var oModel = new JSONModel(oData);
-						that.getView().setModel(oModel,"patient");
-			        },
-			  error: function(xhr, status, errorThrown) {
-			           console.log(xhr);
-			           console.log(status);
-			           console.log(errorThrown);
-			        }
-			});
+			//         url : '/patient_service/hopeteameast/insert_sign_in.xsjs?command=getcoachName',
+			//         type : 'GET',
+			//         // dataType : 'json',   // pas nécessaire mais au cas où..
+			//         async: true,
+			//         success : function(data){
+			//         	console.log("ajax call working");
+			//         	console.log(data);
+			//         	var oData = data;
+			// 			var oModel = new JSONModel(oData);
+			// 			that.getView().setModel(oModel,"patient");
+			//         },
+			//   error: function(xhr, status, errorThrown) {
+			//           console.log(xhr);
+			//           console.log(status);
+			//           console.log(errorThrown);
+			//         }
+			// });
 			
 			
 		},
 		inscriptionOK: function (evt) {
-			console.log("inside");
+			console.log("in");
 			
-			//console.log(this.getView().byId("idFirstName").getValue());
-			var firstname = this.getView().byId("idFirstName").getValue();
+			var jsonObject = {};
+			var patients = [];
+			jsonObject.patients = patients;
+			console.log(jsonObject);
+			console.log("hey");
+			
+			var firstName = this.getView().byId("idFirstName").getValue();
 			var email = this.getView().byId("email").getValue();
 			var password = this.getView().byId("password").getValue();
 			var street = this.getView().byId("street").getValue();
@@ -69,57 +58,109 @@ sap.ui.define([
 			var town = this.getView().byId("town").getValue();
 			var zipcode = this.getView().byId("zipcode").getValue();
 			var country = this.getView().byId("country").getValue();
+			var doctorId = this.getView().byId("doctorId").getValue();
+			
+			var patients = {
+			  "firstName": firstName,
+			  "email": email,
+			  "password": password,
+			  "street": street,
+			  "addressnum": addressnum,
+			  "town": town,
+			  "zipcode": zipcode,
+			  "country": country,
+			}
+			
+			jsonObject.patients.push(patients);
+			console.log(jsonObject);
 			
 			
+			var url = '/pdmsbackend/dbtask/addPatient';
 			
-			// var country = this.getView().byId("country");
-			// var country = oList.getSelectedItems();
-			// var country = this.getView().byId("country").getSelectedItem();
-			console.log(firstname);
-			console.log(email);
-			console.log(password);
-			console.log(street);
-			console.log(addressnum);
-			console.log(town);
-			console.log(zipcode);
-			console.log(country);
-			// var that = this;
-			// setInterval( function() { that.getInscriptionData(that); }, 300 ); 
+			jQuery
+				.ajax({
+					url: url, // Get tenant specific products url
+					type: "POST", // Request type - Get
+					data: jsonObject, 
+					dataType: "json",  // Return datatype
+					headers: {
+						'x-csrf-token': 'fetch' // Fetch CSRF token header
+					},
+					complete: function (xhr) {
+						sap.ui.getCore().AppContext.token = xhr.getResponseHeader("x-csrf-token"); // Set the CSRF token to a global context
+					},
+					success: function (response,status) {
+						// API call was successful
+						
+						console.log(response);
+						if (status == 200) 
+							console.log('reussi');
+					},
+					error: function (e) {
+						// API call failed
+						console.log(e.message);
+					}
+				});
+
+			jQuery
+				.ajax({
+					url: url, // Get tenant specific products url
+					type: "GET", // Request type - Get
+					dataType: "json", // Return datatype
+					headers: {
+						'x-csrf-token': 'fetch' // Fetch CSRF token header
+					},
+					complete: function (xhr) {
+						sap.ui.getCore().AppContext.token = xhr.getResponseHeader("x-csrf-token"); // Set the CSRF token to a global context
+					},
+					success: function (response) {
+						// API call was successful
+						console.log(response);
+					},
+					error: function (e) {
+						// API call failed
+						console.log(e.message);
+					}
+				});
 			
-			$.ajax({
-			        // url : '/patient_service/HOPETEAMEAST_package/insert_sign_in.xsjs?command=insertuser&userid=50&username='+firstname+'&useremail='+email+'&userpassword='+password+'&useraddress='+street+'&usernumber='+addressnum+'&usercity='+town+'&userzip='+zipcode+'&usercountry='+country,  // fichier xsjs
-			        url : '/patient_service/hopeteameast/insert_sign_in.xsjs?command=insertuser&username='+firstname+'&useremail='+email+'&userpassword='+password+'&useraddress='+street+'&usernumber='+addressnum+'&usercity='+town+'&userzip='+zipcode+'&usercountry='+country,  // fichier xsjs
-			        type : 'GET',
-			        // dataType : 'json',   // pas nécessaire mais au cas où..
-			        async: false,
-			        success : function(data){
-			        	console.log("ajax call working");
-			        	console.log(data);
-			        },
-			  error: function(xhr, status, errorThrown) {
-			           console.log(xhr);
-			           console.log(status);
-			           console.log(errorThrown);
-			        }
-			});
-			// var user = this.getView().getModel();
-			// var oModel = new ODataModel({
-			// 	groupId: "$direct",
-			// 	synchronizationMode: "None",
-			// 	serviceUrl: "/odata/v4/todo/"
+						
+		
+			
+		
+			
+			
+			// var manager = "Jane Doe";
+			// jsonObject.patients[0].manager = manager;
+			// console.log(jsonObject);
+			
+			// console.log(JSON.stringify(jsonObject));
+
+			// console.log(firstname);
+			// console.log(email);
+			// console.log(password);
+			// console.log(street);
+			// console.log(addressnum);
+			// console.log(town);
+			// console.log(zipcode);
+			// console.log(country);
+			
+			// $.ajax({
+			        
+			//         url : '/patient_service/hopeteameast/insert_sign_in.xsjs?command=insertuser&username='+firstname+'&useremail='+email+'&userpassword='+password+'&useraddress='+street+'&usernumber='+addressnum+'&usercity='+town+'&userzip='+zipcode+'&usercountry='+country,  // fichier xsjs
+			//         type : 'GET',
+			//         // dataType : 'json',   // pas nécessaire mais au cas où..
+			//         async: false,
+			//         success : function(data){
+			//         	console.log("ajax call working");
+			//         	console.log(data);
+			//         },
+			//   error: function(xhr, status, errorThrown) {
+			//           console.log(xhr);
+			//           console.log(status);
+			//           console.log(errorThrown);
+			//         }
 			// });
-			// oModel.submitBatch("userId").then(function(){
-			// // var oParameters = {
-			// // 	"userId" : this.getCore().getElementById('idFirstName')
 			
-				
-			// // }
-			// ;
-			
-			// // oModel.loadData("/odata/v4/todo/",oParameters,true,'POST');
-				
-			// 	console.log(oParameters.userId);
-			// });
 		}
 			
 	});

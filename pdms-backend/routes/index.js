@@ -68,22 +68,23 @@ router.get('/dbtask/selectMyPatients', function (req, res) {
 /* DB Task 2: Add a patient
 *  We pass the parameters in the body of our URL call
 */
-router.put('/dbtask/addPatient', function (req, res) {
+router.post('/dbtask/addPatient', function (req, res) {
 	//Change made
 	// var name = req.body.name;
 	// var symptoms = req.body.symptoms;
 	// var diagnosis = req.body.diagnosis;
 	// var doctorId = doctorLogonId;
-
-	var name = req.body.name;
-	var lastname = req.body.lastname;
-	var email = req.body.email;
-	var password = req.body.password;
-	var address = req.body.address;
-	var city = req.body.city;
-	var zipcode = req.body.zipcode;
-	var country = req.body.country;
-	var doctorId = req.body.doctorId;
+   
+	var name = req.body.patients[0].firstName;
+	// var lastname = req.body.patients[0].lastname;
+	var email = req.body.patients[0].email;
+	var password = req.body.patients[0].password;
+	var address = req.body.patients[0].address;
+	var addressnum = req.body.patients[0].addressnum;
+	var city = req.body.patients[0].city;
+	var zipcode = req.body.patients[0].zipcode;
+	var country = req.body.patients[0].country;
+	var doctorId = req.body.patients[0].doctorId;
 	res.send(dbInterface.addPatient(name, lastname, email, password, address, city, zipcode, country, doctorId, function (result, error) {
 		if (error) {
 			res.send(400, "Error! Could not insert values");
@@ -107,6 +108,16 @@ router.get('/dbtask/selectAllPatients', function (req, res) {
 	});
 });
 
+router.post('/showDoctors', function (req, res){
+	//res.send(dbInterface.showdoctors);
+	dbInterface.showdoctors(function (result, error) {
+		if (error) {
+			res.send(error);
+		}
+		res.send(result);
+	});
+}
+);
 // /* DB Task 3: Remove a patient
 // *  We pass the parameters in the body of our URL call
 // */

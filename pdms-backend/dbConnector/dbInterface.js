@@ -25,6 +25,54 @@ var pool = new pg.Pool(config);
 /**
  * Checks if a table with name "products" exists. If the table doesn't exist, it creates a table.
  */
+var psqlCreateDoctorsTable = function(){ 
+	
+	
+	var createDoctorsTableQuery = "CREATE TABLE IF NOT EXISTS doctors ( " +
+		"doctor_id serial CONSTRAINT doctor_id PRIMARY KEY," +
+		"doctor_lastname varchar(150) NOT NULL," +
+		"doctor_firstname varchar(150) NOT NULL," +
+		"doctor_email varchar(150) NOT NULL PRIMARY KEY," +
+		"doctor_status varchar(150) ," +
+		"doctor_profession varchar(150) ," +
+		"doctor_quality varchar(150) ," +
+		"doctor_institute varchar(150) ," +
+		"doctor_card_num bigint ,"+
+		"doctor_siret bigint,"+
+		"doctor_practioner_number bigint"+
+		"doctor_practioner_place varchar(150)"+
+		")";
+		
+		//Request the pool for a client connection and execute our query
+		pool.connect().then(client => {
+		client.query(createDoctorsTableQuery).then(res => {
+			console.log(res);
+			client.release();
+		}).catch(e => {
+			client.release();
+			console.error('Query error: ', e.message, e.stack);
+		});
+		
+        };
+};
+
+var psqlSelectDoctors = function (callback) {
+	//Prepare the insert query.
+	var selectDoctorsQuery = "SELECT doctor_id, doctor_lastname, doctor_firstname FROM doctors";
+
+	//Request the pool for a client connection and execute our query
+	return pool.connect().then(client => {
+		return client.query(selectDoctorsQuery).then(function (result) {
+			console.log(result);
+			callback(result.rows);
+			client.release();
+			client.release();
+			console.error('Query error: ', e.message, e.stack);
+		});
+	});
+};
+        
+        
 var psqlCreatePatientsTable = function () {
 
 	//Prepare the create table query.
@@ -40,10 +88,11 @@ var psqlCreatePatientsTable = function () {
 	var createProductsTableQuery = "CREATE TABLE IF NOT EXISTS patients ( " +
 		"patient_id serial CONSTRAINT patient_id PRIMARY KEY," +
 		"patient_name varchar(150) NOT NULL," +
-		"patient_lastname varchar(150) NOT NULL," +
+		// "patient_lastname varchar(150) NOT NULL," +
 		"patient_email varchar(500)," +
 		"patient_password varchar(500)," +
 		"patient_address varchar(500)," +
+		"patient_number varchar(500)," +
 		"patient_city varchar(500)," +
 		"patient_zipcode varchar(500)," +
 		"patient_country varchar(150)," +
@@ -87,11 +136,11 @@ var psqlCreatePatientsTable = function () {
 // 	});
 
 // };
-var psqlAddPatient = function (name, lastname, email, password, address, city, zipcode, country, doctorId, callback) {
+var psqlAddPatient = function (name, email, password, address, number, city, zipcode, country, doctorId, callback) {
 
 	//Prepare the insert query.
 	var insertValuesIntoProductsTableQuery =
-		"INSERT INTO patients (\"patient_name\",\"patient_lastname\",\"patient_email\",\"patient_password\", \"patient_address\", \"patient_city\",\"patient_zipcode\",\"patient_country\",\"doctor_id\", )" +
+		"INSERT INTO patients (\"patient_name\",\"patient_email\",\"patient_password\", \"patient_address\",\"patient_number\" \"patient_city\",\"patient_zipcode\",\"patient_country\",\"doctor_id\", )" +
 		"VALUES($1,$2,$3,$4,$5,$5,$6,$7,$8,$9);";
 
 	//Request the pool for a client connection and execute our query
@@ -108,7 +157,7 @@ var psqlAddPatient = function (name, lastname, email, password, address, city, z
 	// 	});
 	// });
 	return pool.connect().then(client => {
-		client.query(insertValuesIntoProductsTableQuery, [name, lastname, email, password, address, city,
+		client.query(insertValuesIntoProductsTableQuery, [name, email, password, address, number, city,
 		zipcode, country, doctorId]).then(res => {
 			console.log(res);
 			client.release();
@@ -227,5 +276,8 @@ module.exports = {
 	createPatientsTable: psqlCreatePatientsTable,
 	addPatient: psqlAddPatient,
 	selectMyPatients: psqlSelectUserPatients,
-	selectAllPatients: psqlSelectAllPatients
+	selectAllPatients: psqlSelectAllPatients,
+	showdoctors: psqlSelectDoctors
+	
+	
 };
