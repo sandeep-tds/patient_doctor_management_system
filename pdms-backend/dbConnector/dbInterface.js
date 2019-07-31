@@ -138,9 +138,8 @@ var psqlCreatePatientsTable = function () {
 var psqlAddPatient = function (name, email, password, address, number, city, zipcode, country, doctorId, callback) {
 
 	//Prepare the insert query.
-	var insertValuesIntoProductsTableQuery =
-		"INSERT INTO patients (\"patient_name\",\"patient_email\",\"patient_password\", \"patient_address\",\"patient_number\" \"patient_city\",\"patient_zipcode\",\"patient_country\",\"doctor_id\", )" +
-		"VALUES($1,$2,$3,$4,$5,$5,$6,$7,$8,$9);";
+	var insertValuesIntoProductsTableQuery = "INSERT INTO patients (\"patient_name\", \"patient_email\", \"patient_password\", \"patient_address\", \"patient_number\", \"patient_city\", \"patient_zipcode\", \"patient_country\", \"doctor_id\")" +
+		"VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9);";
 
 	//Request the pool for a client connection and execute our query
 	//change made
@@ -197,8 +196,9 @@ var psqlSelectAllPatients = function (callback) {
 
 	//Request the pool for a client connection and execute our query
 	return pool.connect().then(client => {
-		client.query(selectAllMyPatientsQuery).then(res => {
-			console.log(res);
+		client.query(selectAllMyPatientsQuery).then(function (result) {
+			console.log(result);
+			callback(result.rows);
 			client.release();
 		}).catch(e => {
 			client.release();

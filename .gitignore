@@ -19,3 +19,4 @@ APIExternalProducer.js
 *.txt
 *.mtar
 */package-lock.json
+.mta/*

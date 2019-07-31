@@ -66,11 +66,13 @@ sap.ui.define([
 				"town": town,
 				"zipcode": zipcode,
 				"country": country,
+				"doctorId": doctorId
 			}
 
 			jsonObject.patients.push(patients);
-			console.log(jsonObject);
-
+			var jsonString = JSON.stringify(jsonObject);
+			console.log("JSON Object: ", jsonObject);
+			console.log("JSON String: ", jsonString);
 
 			var url = '/pdmsbackend/dbtask/addPatient';
 
@@ -80,11 +82,11 @@ sap.ui.define([
 				headers: {
 					'x-csrf-token': sap.ui.getCore().AppContext.token // CSRF token
 				},
-				data: jsonObject, // Details of the product entered by the user
+				data: jsonString, // Details of the product entered by the user
 				contentType: "application/json", // The format of the data sent
 				success: function (result) {
 					// API call was successful
-					console.log(response);
+					console.log(result);
 					if (status == 200)
 						console.log('reussi');
 				},

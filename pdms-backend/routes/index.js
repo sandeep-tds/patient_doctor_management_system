@@ -18,34 +18,34 @@ router.get('/', function (req, res) {
 	var accessToken = req.headers['authorization'];
 	accessToken = accessToken.substring('Bearer '.length);
 	var uaa = xsenv.getServices({
-	  uaa: {
-		tag: 'xsuaa'
-	  }
+		uaa: {
+			tag: 'xsuaa'
+		}
 	}).uaa;
 	return xssec.createSecurityContext(accessToken, uaa, (err, securityContext) => {
-	  if (err) {
-		res.status(400).send("Error");
-	  }
-	  doctorLogonId = securityContext.userInfo.logonName;
-	  res.status(200).json("Hello from the backend " + doctorLogonId);
+		if (err) {
+			res.status(400).send("Error");
+		}
+		doctorLogonId = securityContext.userInfo.logonName;
+		res.status(200).json("Hello from the backend " + doctorLogonId);
 	});
 });
 
-router.get('/getUserInfo', function(req, res, next) {
+router.get('/getUserInfo', function (req, res, next) {
 	var accessToken = req.headers['authorization'];
 	accessToken = accessToken.substring('Bearer '.length);
 	var uaa = xsenv.getServices({
-	  uaa: {
-		tag: 'xsuaa'
-	  }
+		uaa: {
+			tag: 'xsuaa'
+		}
 	}).uaa;
 	return xssec.createSecurityContext(accessToken, uaa, (err, securityContext) => {
-	  if (err) {
-		res.status(400).send("Error");
-	  }
-	  res.send(securityContext.userInfo);
+		if (err) {
+			res.status(400).send("Error");
+		}
+		res.send(securityContext.userInfo);
 	});
-  });
+});
 
 
 //------------------------------------------------------------------------------------------------------------
@@ -65,6 +65,12 @@ router.get('/dbtask/selectMyPatients', function (req, res) {
 	});
 });
 
+router.put('/dbtask/testPut', function (req, res) {
+	console.log("\nPut call works");
+	res.send('success');
+	// console.log("\nPrinting the Body:", req.body);
+});
+
 /* DB Task 2: Add a patient
 *  We pass the parameters in the body of our URL call
 */
@@ -74,30 +80,30 @@ router.put('/dbtask/addPatient', function (req, res) {
 	// var symptoms = req.body.symptoms;
 	// var diagnosis = req.body.diagnosis;
 	// var doctorId = doctorLogonId;
-   console.log("\nPrinting the custom logs:");
-   console.log("\nPrinting the Body:", req.body);
-//    console.log("\nPrinting the first patient's details:", req.body.patients[0]);
+	console.log("\nPrinting the custom logs:");
+	console.log("\nPrinting the Body:", req.body);
+	console.log("\nPrinting the first patient's details:", req.body.patients[0]);
 
-// 	var name = req.body.patients[0].firstName;
-// 	// var lastname = req.body.patients[0].lastname;
-// 	var email = req.body.patients[0].email;
-// 	var password = req.body.patients[0].password;
-// 	var address = req.body.patients[0].address;
-// 	var addressnum = req.body.patients[0].addressnum;
-// 	var city = req.body.patients[0].city;
-// 	var zipcode = req.body.patients[0].zipcode;
-// 	var country = req.body.patients[0].country;
-// 	var doctorId = req.body.patients[0].doctorId;
-// 	res.send(dbInterface.addPatient(name, email, password, address, city, zipcode, country, doctorId, function (result, error) {
-// 		if (error) {
-// 			res.send(400, "Error! Could not insert values");
-// 		}
-// 		if (result === 'success') {
-// 			res.send(200, "Values inserted");
-// 		} else {
-// 			res.send(400, "Error! Could not insert values");
-// 		}
-// 	}));
+	var name = req.body.patients[0].firstName;
+	// var lastname = req.body.patients[0].lastname;
+	var email = req.body.patients[0].email;
+	var password = req.body.patients[0].password;
+	var address = req.body.patients[0].address;
+	var addressnum = req.body.patients[0].addressnum;
+	var city = req.body.patients[0].city;
+	var zipcode = req.body.patients[0].zipcode;
+	var country = req.body.patients[0].country;
+	var doctorId = req.body.patients[0].doctorId;
+	res.send(dbInterface.addPatient(name, email, password, address, addressnum, city, zipcode, country, doctorId, function (result, error) {
+		if (error) {
+			res.send(400, "Error! Could not insert values");
+		}
+		if (result === 'success') {
+			res.send(200, "Values inserted");
+		} else {
+			res.send(400, "Error! Could not insert values");
+		}
+	}));
 });
 
 /* DB Task 3: Select all patients in the system
@@ -111,7 +117,7 @@ router.get('/dbtask/selectAllPatients', function (req, res) {
 	});
 });
 
-router.post('/showDoctors', function (req, res){
+router.post('/showDoctors', function (req, res) {
 	//res.send(dbInterface.showdoctors);
 	dbInterface.showdoctors(function (result, error) {
 		if (error) {
