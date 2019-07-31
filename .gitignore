@@ -17,3 +17,5 @@ APIExternalProducer.js
 /mta_archives/
 */node_modules
 *.txt
+*.mtar
+*/package-lock.json

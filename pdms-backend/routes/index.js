@@ -68,7 +68,7 @@ router.get('/dbtask/selectMyPatients', function (req, res) {
 /* DB Task 2: Add a patient
 *  We pass the parameters in the body of our URL call
 */
-router.post('/dbtask/addPatient', function (req, res) {
+router.put('/dbtask/addPatient', function (req, res) {
 	// Change made
 	// var name = req.body.name;
 	// var symptoms = req.body.symptoms;
@@ -76,28 +76,28 @@ router.post('/dbtask/addPatient', function (req, res) {
 	// var doctorId = doctorLogonId;
    console.log("\nPrinting the custom logs:");
    console.log("\nPrinting the Body:", req.body);
-   console.log("\nPrinting the first patient's details:", req.body.patients[0]);
-   
-	var name = req.body.patients[0].firstName;
-	// var lastname = req.body.patients[0].lastname;
-	var email = req.body.patients[0].email;
-	var password = req.body.patients[0].password;
-	var address = req.body.patients[0].address;
-	var addressnum = req.body.patients[0].addressnum;
-	var city = req.body.patients[0].city;
-	var zipcode = req.body.patients[0].zipcode;
-	var country = req.body.patients[0].country;
-	var doctorId = req.body.patients[0].doctorId;
-	res.send(dbInterface.addPatient(name, email, password, address, city, zipcode, country, doctorId, function (result, error) {
-		if (error) {
-			res.send(400, "Error! Could not insert values");
-		}
-		if (result === 'success') {
-			res.send(200, "Values inserted");
-		} else {
-			res.send(400, "Error! Could not insert values");
-		}
-	}));
+//    console.log("\nPrinting the first patient's details:", req.body.patients[0]);
+
+// 	var name = req.body.patients[0].firstName;
+// 	// var lastname = req.body.patients[0].lastname;
+// 	var email = req.body.patients[0].email;
+// 	var password = req.body.patients[0].password;
+// 	var address = req.body.patients[0].address;
+// 	var addressnum = req.body.patients[0].addressnum;
+// 	var city = req.body.patients[0].city;
+// 	var zipcode = req.body.patients[0].zipcode;
+// 	var country = req.body.patients[0].country;
+// 	var doctorId = req.body.patients[0].doctorId;
+// 	res.send(dbInterface.addPatient(name, email, password, address, city, zipcode, country, doctorId, function (result, error) {
+// 		if (error) {
+// 			res.send(400, "Error! Could not insert values");
+// 		}
+// 		if (result === 'success') {
+// 			res.send(200, "Values inserted");
+// 		} else {
+// 			res.send(400, "Error! Could not insert values");
+// 		}
+// 	}));
 });
 
 /* DB Task 3: Select all patients in the system

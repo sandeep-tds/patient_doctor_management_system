@@ -76,7 +76,7 @@ sap.ui.define([
 
 			jQuery.ajax({
 				url: url, // Add product URL
-				type: "POST", // Request Type - PUT
+				type: "PUT", // Request Type - PUT
 				headers: {
 					'x-csrf-token': sap.ui.getCore().AppContext.token // CSRF token
 				},
