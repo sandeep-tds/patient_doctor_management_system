@@ -82,7 +82,6 @@ router.put('/dbtask/addPatient', function (req, res) {
 	// var doctorId = doctorLogonId;
 	console.log("\nPrinting the custom logs:");
 	console.log("\nPrinting the Body:", req.body);
-	console.log("\nPrinting the first patient's details:", req.body.patients[0]);
 
 	var name = req.body.patients[0].firstName;
 	// var lastname = req.body.patients[0].lastname;
@@ -96,12 +95,12 @@ router.put('/dbtask/addPatient', function (req, res) {
 	var doctorId = req.body.patients[0].doctorId;
 	res.send(dbInterface.addPatient(name, email, password, address, addressnum, city, zipcode, country, doctorId, function (result, error) {
 		if (error) {
-			res.send(400, "Error! Could not insert values");
+			res.status(400).send('Error! Could not insert values')
 		}
 		if (result === 'success') {
-			res.send(200, "Values inserted");
+			res.status(200).send('Values inserted')
 		} else {
-			res.send(400, "Error! Could not insert values");
+			res.status(400).send('Error! Could not insert values')
 		}
 	}));
 });

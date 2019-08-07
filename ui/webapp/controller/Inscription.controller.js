@@ -11,14 +11,14 @@ sap.ui.define([
 			this.setPageInfoMessage();
 		},
 
-		setPageInfoMessage: function (){
+		setPageInfoMessage: function () {
 			var userDetails = this.getOwnerComponent().getModel("userInfo").getProperty("/data");
 			var docFirstName = userDetails.givenName;
 			var docLastName = userDetails.familyName;
 			var pageInfoMessage = "Entrez les détails pour " + docFirstName + " " + docLastName;
 			this.getView().byId("Title3").setText(pageInfoMessage)
 		},
-		
+
 		inscriptionOK: function (evt) {
 
 			var jsonObject = {};
@@ -36,7 +36,7 @@ sap.ui.define([
 			var country = this.getView().byId("country").getValue();
 			var doctorId = this.getOwnerComponent().getModel("userInfo").getProperty("/data").email;
 
-			var patients = {
+			var patientsSet = {
 				"firstName": firstName,
 				"email": email,
 				"password": password,
@@ -45,10 +45,12 @@ sap.ui.define([
 				"town": town,
 				"zipcode": zipcode,
 				"country": country,
+				"doctorId": doctorId
 			}
 
-			jsonObject.patients.push(patients);
-			console.log(jsonObject);
+			jsonObject.patients.push(patientsSet);
+			var patientJSONString = JSON.stringify(jsonObject);
+			console.log("JSON Object: ", patientJSONString);
 
 			var url = '/pdmsbackend/dbtask/addPatient';
 
@@ -58,7 +60,7 @@ sap.ui.define([
 				headers: {
 					'x-csrf-token': sap.ui.getCore().AppContext.token // CSRF token
 				},
-				data: jsonObject, // Details of the product entered by the user
+				data: patientJSONString, // Details of the product entered by the user
 				contentType: "application/json", // The format of the data sent
 				success: function (result) {
 					// API call was successful

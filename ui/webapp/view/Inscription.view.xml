@@ -15,11 +15,11 @@
 								<Toolbar id="TB1">
 									<!-- TODO Center-->
 									<Title id="Title1" text="{i18n>Inscription}" textAlign="Center" level="H4" titleStyle="H4"/>
-									
+
 									<ToolbarSpacer/>
 								</Toolbar>
 							</f:toolbar>
-									
+
 							<f:layout>
 								<f:ResponsiveGridLayout/>
 							</f:layout>
@@ -34,7 +34,7 @@
 									<f:formElements>
 										<f:FormElement>
 											<f:fields>
-												<Input id="idFirstName" placeholder="{i18n>Name}" value="{ path : '/firstname' , parameters : { $$updateGroupId : 'userId' } }"/>
+												<Input id="idFirstName" placeholder="{i18n>Name}"/>
 											</f:fields>
 										</f:FormElement>
 										<!--Put correct type-->
@@ -45,7 +45,7 @@
 										</f:FormElement>
 										<f:FormElement>
 											<f:fields>
-									
+
 												<Input placeholder="{i18n>Password}"  type="Password" id="password"/>
 											</f:fields>
 										</f:FormElement>

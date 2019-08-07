@@ -63,7 +63,7 @@
 			"cozy": true
 		},
 		"models": {
-			"userInfo":{
+			"userInfo": {
 				"type": "sap.ui.model.json.JSONModel"
 			},
 			"i18n": {
@@ -158,13 +158,12 @@
 					"pattern": "proProgSeance2",
 					"name": "proProgSeance2Page",
 					"target": "proProgSeance2"
-				}
-				,
+				},
 				{
 					"pattern": "modifPro",
 					"name": "modifProPage",
 					"target": "modifPro"
-				},				
+				},
 				{
 					"pattern": "chart1",
 					"name": "chart1Page",
@@ -208,130 +207,110 @@
 			],
 			"targets": {
 				"home": {
-					
 					"viewName": "Launcher",
 					"viewLevel": 1
-					
 				},
 				"inscription": {
-					"viewId":"inscriptionPage",
+					"viewId": "inscriptionPage",
 					"viewName": "Inscription",
 					"viewLevel": 2
-					
 				},
 				"feedback2": {
-					"viewId":"feedback2Page",
+					"viewId": "feedback2Page",
 					"viewName": "Feedback2",
 					"viewLevel": 3
-					
 				},
 				"pro": {
-					"viewId":"ProPage",
+					"viewId": "ProPage",
 					"viewName": "PagePro",
 					"viewLevel": 4
-					
 				},
 				"patient": {
-					"viewId":"PatientPage",
+					"viewId": "PatientPage",
 					"viewName": "PagePatient",
 					"viewLevel": 5
-					
 				},
 				"proProgSeance": {
-					"viewId":"proProgSeancePage",
+					"viewId": "proProgSeancePage",
 					"viewName": "Pro_Program_Seance",
 					"viewLevel": 6
-					
 				},
 				"userCal": {
-					"viewId":"userCal",
+					"viewId": "userCal",
 					"viewName": "User_calendar",
 					"viewLevel": 7
-					
 				},
 				"userStat": {
-					"viewId":"userStat",
+					"viewId": "userStat",
 					"viewName": "User_statistique",
 					"viewLevel": 8
-					
 				},
 				"userProg": {
-					"viewId":"userProg",
+					"viewId": "userProg",
 					"viewName": "User_prog_seance",
 					"viewLevel": 9
-					
 				},
 				"proProgSeance1": {
-					"viewId":"proProgSeance1Page",
+					"viewId": "proProgSeance1Page",
 					"viewName": "Pro_Program_Seance_1",
 					"viewLevel": 10
-					
 				},
 				"proProgSeance2": {
-					"viewId":"proProgSeance2Page",
+					"viewId": "proProgSeance2Page",
 					"viewName": "Pro_Program_Seance_2",
 					"viewLevel": 11
-					
 				},
 				"modifPro": {
-					"viewId":"modifProPage",
+					"viewId": "modifProPage",
 					"viewName": "ModifPro",
 					"viewLevel": 12
-					
 				},
 				"chart1": {
-					"viewId":"chart1Page",
+					"viewId": "chart1Page",
 					"viewName": "Chart1",
 					"viewLevel": 13
-					
 				},
 				"chart2": {
-					"viewId":"chart2Page",
+					"viewId": "chart2Page",
 					"viewName": "Chart2",
 					"viewLevel": 14
-					
 				},
 				"modif": {
-					"viewId":"modifPage",
+					"viewId": "modifPage",
 					"viewName": "Modif",
-					"viewLevel": 15 
-					
+					"viewLevel": 15
 				},
 				"detailSeance": {
-					"viewId":"detailSeancePage",
+					"viewId": "detailSeancePage",
 					"viewName": "detailsSeance",
-					"viewLevel": 16 
-					
+					"viewLevel": 16
 				},
 				"infoPatient": {
-					"viewId":"infoPatientPage",
+					"viewId": "infoPatientPage",
 					"viewName": "InfoPatient",
-					"viewLevel": 17 
+					"viewLevel": 17
 				},
 				"statPatient": {
-					"viewId":"statPatientPage",
+					"viewId": "statPatientPage",
 					"viewName": "StatPatient",
 					"viewLevel": 18
 				},
 				"chart1Pro": {
-					"viewId":"chart1ProPage",
+					"viewId": "chart1ProPage",
 					"viewName": "Chart1Pro",
 					"viewLevel": 19
-					
 				},
 				"chart2Pro": {
-					"viewId":"chart2ProPage",
+					"viewId": "chart2ProPage",
 					"viewName": "Chart2Pro",
 					"viewLevel": 20
-					
 				},
-            "notFound": {
-               "viewId": "notFound",
-               "viewName": "NotFound",
-               "transition": "show"
-            }
+				"notFound": {
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
+				}
 			}
 		}
-		
 	}
 }
